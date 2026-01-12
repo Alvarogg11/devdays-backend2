@@ -3,6 +3,6 @@ import { Router } from 'express';
 
 const aiRouter = Router();
 
-aiRouter.post('/ollama/chat', generateAIResponse);
+aiRouter.post('/openAI/chat', generateAIResponse);
 
 export { aiRouter };

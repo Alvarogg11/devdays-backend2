@@ -1,3 +1,5 @@
+import OpenAI from 'openai';
+
 export const generateText = async (prompt) => {
     const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY,
