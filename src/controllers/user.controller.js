@@ -74,7 +74,7 @@ export const removeUser = async (req, res) => {
 export const updateUser = async (req, res) => {
     try {
         const { id: userId } = req.params;
-        const updatedUser = await changeUser(userId,req.body); //por qué ponemos el req.body??
+        const updatedUser = await changeUser(userId,req.body);
         if (updatedUser) {
             res.status(200).json(updatedUser);
         } else {
