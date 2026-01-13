@@ -2,9 +2,9 @@ import issueService from '../services/issue.service.js';
 
 export const getAllIssues = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 10; //valores por defecto si no ponemos nada en la petición
     try {
-        const issues = await issueService.getAllIssues(page, limit);
+        const issues = await issueService.getAllIssues(page, limit); //obtenemos las issues aplicando los parámetros 
         res.status(200).json(issues);
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' });

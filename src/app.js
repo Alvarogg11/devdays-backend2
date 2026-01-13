@@ -7,6 +7,7 @@ import { auditRouter } from './routes/audit.routes.js';
 import { aiRouter } from './routes/ai.routes.js';
 import { telemetryRouter } from './routes/telemetry.routes.js';
 import { commitRouter } from './routes/commit.routes.js'; 
+import { openAIrouter } from './routes/openAI.routes.js';
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use('/api/v1', auditRouter);
 app.use('/api/v1', aiRouter);
 app.use('/api/v1', telemetryRouter);
 app.use('/api/v1', commitRouter);
+app.use('/api/v1', openAIrouter);
 
 //(inicio de la aplicación,lo que se muestra al entrarn en la pág ppal)
 app.get('/', (req, res) => {

@@ -8,7 +8,7 @@ export const getAllIssues = async (page, limit) => {
 export const getIssueByIssueId = async (issueId) => {
     return await IssueRepository.findByIssueId(issueId);
 };
-// usamos valores predefinidos en caso de que el usuario no mande nada para page y perpage (vamos a dejar esta función como prueba)
+// usamos valores predefinidos en caso de que el usuario no mande nada para page y perpage (vamos a dejar esta función pero no la usamos en el controlador)
 export const fetchGithubIssues = async (repoOwner, repoName, page=1, perPage= 30) => { 
     const response = await axios.get(`https://api.github.com/repos/${repoOwner}/${repoName}/issues?state=all&page=${page}&per_page=${perPage}`); //esto no estoy seguro
     return response.data;

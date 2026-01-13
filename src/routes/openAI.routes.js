@@ -1,8 +1,8 @@
 import { generateAIResponse } from '../controllers/ai.controller.js';
 import { Router } from 'express';
 
-const aiRouter = Router();
+const openAIrouter = Router();
 
-aiRouter.post('/openAI/chat', generateAIResponse);
+openAIrouter.post('/openAI/chat', generateAIResponse);
 
-export { aiRouter };
+export { openAIrouter };
