@@ -21,7 +21,8 @@ const auditSchema = new mongoose.Schema({
   type: [Object],
   required: true,
  },
-});
+},
+{ versionKey: false }); //para quitar "__v" de las respuestas
 
 const Audit = mongoose.model('Audit', auditSchema);
 

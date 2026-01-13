@@ -1,8 +1,11 @@
 import axios from 'axios';
 import IssueRepository from '../repositories/issue.repository.js';
 
-export const getAllIssues = async (page, limit) => {
-    return await IssueRepository.findAll(page, limit);
+export const getAllIssues = async (page, limit, wantsEverything) => {
+    if (wantsEverything) {
+        return await IssueRepository.findAllUnpaginated(); //si es true, traemos todas las issues sin paginación
+    }
+    return await IssueRepository.findAll(page, limit); // eoc -> devolvemos paginado
 };
 
 export const getIssueByIssueId = async (issueId) => {
@@ -16,6 +19,9 @@ export const fetchGithubIssues = async (repoOwner, repoName, page=1, perPage= 30
 
 //función recursiva para traer todas las issues 
 export const fetchAllGithubIssuesRecursive = async (repoOwner, repoName, page = 1, allIssues = []) => {
+    if (page > 10) { //límite de páginas para evitar bucles infinitos y errores de github 422  (porque el máximo es de 1000 issues)
+        return allIssues;
+    }
     const response = await axios.get(`https://api.github.com/repos/${repoOwner}/${repoName}/issues`, {
         params: { state: 'all', page: page, per_page: 100 }
     });

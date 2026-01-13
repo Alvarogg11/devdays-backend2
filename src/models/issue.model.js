@@ -36,7 +36,7 @@ const issueSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-});
+}, { versionKey: false });
 
 const Issue = mongoose.model('Issue', issueSchema);
 

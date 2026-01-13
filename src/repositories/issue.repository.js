@@ -1,8 +1,13 @@
 import Issue from '../models/issue.model.js';
-//explicar por qué esto de limit y skip
+
 const findAll = async (page = 1, limit = 10) => {
     const skip = (page - 1) * limit;
     return await Issue.find().skip(skip).limit(limit);
+};
+
+//para obtener todas las issues sin paginación (al usar findAll en audit solo usamos 10 issues)
+const findAllUnpaginated = async () => {
+    return await Issue.find(); 
 };
 
 const findByIssueId = async (issueId) => {
@@ -16,6 +21,7 @@ const create = async (issueData) => {
 
 export default {
     findAll,
+    findAllUnpaginated,
     create,
     findByIssueId,
 };

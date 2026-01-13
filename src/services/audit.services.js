@@ -10,7 +10,7 @@ export const getAuditById = async (id) => {
 };
 
 export const auditIssues = async () => {
- const issues = await IssueRepository.findAll();    
+ const issues = await IssueRepository.findAllUnpaginated();  //cambiado el método para usar todas las issues de la base de datos
  const issuesWithBugInTitle = issues.filter(issue => /bug/i.test(issue.title));
  const totalIssues = issues.length;
  const ratioWithBugInTitle = totalIssues === 0 ? 0 : issuesWithBugInTitle.length / totalIssues;
