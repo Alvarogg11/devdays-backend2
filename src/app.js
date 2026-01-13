@@ -19,7 +19,7 @@ app.use('/api/v1', commitRouter);
 
 //(inicio de la aplicación,lo que se muestra al entrarn en la pág ppal)
 app.get('/', (req, res) => {
-    res.send('APP: Hello, ISA DevDays 2025!');
+    res.send('Backend de DevDays de Álvaro Gil funcionando');
 });
 
 // Bundle OpenAPI and set up Swagger UI (para la documentación)
