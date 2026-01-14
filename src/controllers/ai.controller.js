@@ -1,4 +1,4 @@
-import { generateText } from '../services/ollama.service.js' ; //he quitado openai.service.js para probar ollama (por ver cómo hacer con ambos)
+import { generateText } from '../services/ollama.service.js' ; 
 
 export const generateAIResponse = async (req, res) => {
     try {
@@ -7,6 +7,6 @@ export const generateAIResponse = async (req, res) => {
         const aiResponse = await generateText(prompt);
         res.status(200).json({ response: aiResponse });
     } catch (error) {
-        res.status(error).json({ message: error.message });
+        res.status(error.status || 500).json({ message: error.message || 'Internal server error' });
     }
 };

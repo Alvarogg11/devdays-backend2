@@ -11,7 +11,7 @@ export const getUserById = async (id) => {
 
 export const createUser = async (userData) => {
     const newUser = {
-        ...userData, //mirar por qué los puntos suspensivos al inicio
+        ...userData, // para copiar todas las propiedades de userData y ahorrar código (no hace falta cambiar en el futuro si queremos añadir más campos)
         userId: randomUUID() // parar generar un ID automático 
     };
     return await userRepository.create(newUser);

@@ -26,7 +26,7 @@ export const getIssueByIssueId = async (req, res) => {
     }
 };
 
-// src/controllers/issue.controller.js
+
 export const fetchAndSyncAllIssues = async (req, res) => {
     const { owner, name } = req.body.repository;
     try {

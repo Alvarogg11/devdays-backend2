@@ -4,8 +4,9 @@ import IssueRepository from '../repositories/issue.repository.js';
 export const getAllIssues = async (page, limit, wantsEverything) => {
     if (wantsEverything) {
         return await IssueRepository.findAllUnpaginated(); //si es true, traemos todas las issues sin paginación
+    } else{
+        return await IssueRepository.findAll(page, limit); // eoc -> devolvemos paginado
     }
-    return await IssueRepository.findAll(page, limit); // eoc -> devolvemos paginado
 };
 
 export const getIssueByIssueId = async (issueId) => {
