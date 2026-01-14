@@ -16,7 +16,7 @@ Por otra parte con respecto a los parámetros, es tan simple como levantar la ap
 * **Ejemplo de endpoint con parámetros:**  
 http://localhost:3000/api/v1/issues?page=6&limit=5  
 
-(Modificiando los parámetros a su gusto, cabe destacar que hay valores por defecto, pero no se ha tenido en cuenta cuando el usuario haga un mal uso de estos valores, como por ejemplo poner números enteros muy superiores al número de issues del sistema, decimales, letras o caracteres especiales).  
+(Modificando los parámetros a su gusto, cabe destacar que hay valores por defecto, pero no se ha tenido en cuenta cuando el usuario haga un mal uso de estos valores, como por ejemplo poner números enteros muy superiores al número de issues del sistema, decimales, letras o caracteres especiales).  
 ### Explicación del entregable N1-3
 Para este apartado hemos creado las siguientes clases :
 * ['ai.controller.js'](src/controllers/ai.controller.js) 
