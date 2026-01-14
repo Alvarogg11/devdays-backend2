@@ -22,6 +22,6 @@ export const fetchAndSaveCommits = async (req, res) => {
         res.status(200).json(savedCommits);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(error).json({ message: error.message });
     }
 };

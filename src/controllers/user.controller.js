@@ -12,7 +12,7 @@ export const getUsers = async (req, res) => {
         span.setAttribute('user.count', users.length); //atributo nuevo personalizado para la traza
         res.status(200).json(users);
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     } finally {
         span.end(); // Es importante cerrar siempre el span
     }
@@ -28,7 +28,7 @@ export const getUser = async (req, res) => {
             res.status(404).json({ message: 'User not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     }
 };
 
@@ -43,8 +43,7 @@ export const addUser = async (req, res) => {
         res.status(201).json(newUser);
         userCreationCounter.add(1);
     } catch (error) {
-    console.error(error); //cambio temporal para ver error en consola
-    res.status(500).json({ message: error.message });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     }
 };
 
@@ -53,7 +52,7 @@ export const addUsers = async (req, res) => {
         const savedUsers = await saveUsers(req.body);
         res.status(201).json(savedUsers);
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     }
 };
 
@@ -67,7 +66,7 @@ export const removeUser = async (req, res) => {
             res.status(404).json({ message: 'User not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     }
 };
 
@@ -81,6 +80,6 @@ export const updateUser = async (req, res) => {
             res.status(404).json({ message: 'User not found' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     }
 };

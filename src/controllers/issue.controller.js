@@ -8,7 +8,7 @@ export const getAllIssues = async (req, res) => {
         const issues = await issueService.getAllIssues(page, limit, wantsEverything); //obtenemos las issues aplicando los parámetros 
         res.status(200).json(issues);
     } catch (error) {
-        res.status(error.status || 500).json({ message: 'Internal server error' });
+        res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
     }
 };
 

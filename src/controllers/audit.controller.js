@@ -5,7 +5,7 @@ export const getAllAudits = async (req, res) => {
   const audits = await auditService.getAllAudits();
   res.status(200).json(audits);
  } catch (error) {
-  res.status(500).json({ message: 'Internal server error' });
+    res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
  }
 };
 
@@ -18,7 +18,7 @@ export const getAuditById = async (req, res) => {
   }
   res.status(200).json(audit);
  } catch (error) {
-  res.status(500).json({ message: 'Internal server error' });
+    res.status(error.status || 500).json({ message: 'Internal server error' || error.message });
  }
 };
 
@@ -28,6 +28,5 @@ export const auditIssues = async (req, res) => {
   res.status(200).json(githubIssues);
  } catch (error) {
   console.error(error);
-  res.status(500).json({ message: 'Internal server error' });
- }
+    res.status(error.status || 500).json({ message: 'Internal server error' || error.message }); }
 };
