@@ -14,7 +14,7 @@ Es importante tener descargadas las siguientes herramientas para poder probar c�
 Para poder usar este proyecto en local, clonaremos el repositorio usando el comando de bash:
 ```bash
 git clone https://github.com/Alvarogg11/devdays-backend2.git
-git clone https://github.com/Alvarogg11/dev-days-25-frontend.git    
+git clone https://github.com/Alvarogg11/devdayfront.git    
 ```
 También podemos simplemente descargar el zip para seguidamente descomprimirlo y usarlo en el IDE preferido.  
 *Cabe destacar que el trabajo principal del proyecto ha sido desarrollado en el proyecto de backend, por lo que el frontend no tiene gran contenido más que lo explicado en la clase del 22 de Diciembre de 2025.*
